@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎨 PortfolioBuilder
+# 🎨 Portfolic
 
 **Build a stunning, professional portfolio website in minutes — no code required.**
 
