@@ -7,6 +7,7 @@ import type { PortfolioData, Skill } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
 import ToolIcon from '@/components/themes/shared/ToolIcon'
+import BulletText from '@/components/themes/shared/BulletText'
 import { externalUrl } from '@/lib/url'
 
 function groupSkills(skills: Skill[]) {
@@ -120,7 +121,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                       {e.start_date?.slice(0, 7)} — {e.is_current ? 'Present' : e.end_date?.slice(0, 7)}
                     </div>
                   </div>
-                  {e.description && <p className="text-slate-600 text-sm mt-2 leading-relaxed font-light">{e.description}</p>}
+                  {e.description && <BulletText text={e.description} className="text-slate-600 text-sm mt-2 leading-relaxed font-light" />}
                 </div>
               ))}
             </div>
@@ -144,7 +145,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                       {e.start_date?.slice(0, 7)}{e.end_date ? ` — ${e.end_date.slice(0, 7)}` : ''}
                     </div>
                   </div>
-                  {e.description && <p className="text-slate-600 text-sm mt-2 leading-relaxed font-light">{e.description}</p>}
+                  {e.description && <BulletText text={e.description} className="text-slate-600 text-sm mt-2 leading-relaxed font-light" />}
                 </div>
               ))}
             </div>
@@ -200,9 +201,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                         )}
                       </h3>
                       {p.description && (
-                        <p className="text-slate-500 mt-2 leading-relaxed font-light">
-                          {p.description}
-                        </p>
+                        <BulletText text={p.description} className="text-slate-500 mt-2 leading-relaxed font-light" />
                       )}
                       {p.tech_stack?.length > 0 && (
                         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">

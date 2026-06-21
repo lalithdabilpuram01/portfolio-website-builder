@@ -8,6 +8,7 @@ import type { PortfolioData, Skill, SkillLevel } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
 import ToolIcon, { DARK_BLOOM } from '@/components/themes/shared/ToolIcon'
+import BulletText from '@/components/themes/shared/BulletText'
 import { externalUrl } from '@/lib/url'
 import { APP_NAME } from '@/lib/config'
 
@@ -217,7 +218,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                     <div>
                       <div className="font-bold text-white text-lg">{e.role}</div>
                       <div className="text-pink-400">{e.company}</div>
-                      {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                      {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                     </div>
                   </div>
                   <div className="text-sm text-slate-500 shrink-0 sm:text-right">
@@ -259,7 +260,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                       <div className="font-bold text-white text-lg">{e.degree}{e.field ? ` · ${e.field}` : ''}</div>
                       <div className="text-purple-400">{e.institution}</div>
                       {e.gpa && <div className="text-slate-500 text-sm mt-0.5">GPA: {e.gpa}</div>}
-                      {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                      {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                     </div>
                   </div>
                   <div className="text-sm text-slate-500 shrink-0 sm:text-right">
@@ -371,7 +372,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                       </div>
                     </div>
                     {p.description && (
-                      <p className="text-slate-400 leading-relaxed mb-5">{p.description}</p>
+                      <BulletText text={p.description} className="text-slate-400 leading-relaxed mb-5" />
                     )}
                     {p.tech_stack?.length > 0 && (
                       <div className="flex flex-wrap gap-2">

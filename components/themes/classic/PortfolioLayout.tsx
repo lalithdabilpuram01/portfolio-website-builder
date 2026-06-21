@@ -8,6 +8,7 @@ import type { PortfolioData, Skill } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
 import ToolIcon, { DARK_BLOOM } from '@/components/themes/shared/ToolIcon'
+import BulletText from '@/components/themes/shared/BulletText'
 import { externalUrl } from '@/lib/url'
 import { APP_NAME } from '@/lib/config'
 
@@ -211,7 +212,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                         {e.start_date?.slice(0, 7)} — {e.is_current ? 'Present' : e.end_date?.slice(0, 7)}
                       </div>
                     </div>
-                    {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                    {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                   </div>
                 ))}
               </div>
@@ -245,7 +246,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                         {e.start_date?.slice(0, 7)}{e.end_date ? ` — ${e.end_date.slice(0, 7)}` : ''}
                       </div>
                     </div>
-                    {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                    {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                   </div>
                 ))}
               </div>
@@ -318,9 +319,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                           )}
                         </div>
                         {p.description && (
-                          <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                            {p.description}
-                          </p>
+                          <BulletText text={p.description} className="text-slate-400 text-sm leading-relaxed mb-4" />
                         )}
                         {p.tech_stack?.length > 0 && (
                           <div className="flex flex-wrap gap-2">

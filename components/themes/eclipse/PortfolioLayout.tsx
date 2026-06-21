@@ -10,6 +10,7 @@ import type { PortfolioData, Profile, Skill } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
 import ToolIcon, { DARK_BLOOM } from '@/components/themes/shared/ToolIcon'
+import BulletText from '@/components/themes/shared/BulletText'
 import { externalUrl } from '@/lib/url'
 
 const BLUE = '#2a6fb6'
@@ -426,7 +427,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                     <div className="text-xs text-slate-500 shrink-0">{e.start_date?.slice(0, 7)} — {e.is_current ? 'Present' : e.end_date?.slice(0, 7)}</div>
                   </div>
                   <div className="text-sm" style={{ color: BLUE }}>{e.company}</div>
-                  {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                  {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                 </motion.div>
               ))}
             </div>
@@ -452,7 +453,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                         )}
                       </div>
                     </div>
-                    {p.description && <p className="text-slate-400 text-sm leading-relaxed mb-4">{p.description}</p>}
+                    {p.description && <BulletText text={p.description} className="text-slate-400 text-sm leading-relaxed mb-4" />}
                     {p.tech_stack?.length > 0 && (
                       <div className="flex flex-wrap gap-2">
                         {p.tech_stack.map((t) => (
@@ -481,7 +482,7 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                   </div>
                   <div className="text-sm" style={{ color: RED }}>{e.institution}</div>
                   {e.gpa && <div className="text-xs text-slate-500 mt-0.5">GPA: {e.gpa}</div>}
-                  {e.description && <p className="text-slate-400 text-sm mt-2 leading-relaxed">{e.description}</p>}
+                  {e.description && <BulletText text={e.description} className="text-slate-400 text-sm mt-2 leading-relaxed" />}
                 </motion.div>
               ))}
             </div>
