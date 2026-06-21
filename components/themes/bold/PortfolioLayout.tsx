@@ -7,6 +7,7 @@ import { Github, Linkedin, Twitter } from '@/components/icons/Brand'
 import type { PortfolioData, Skill, SkillLevel } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
+import ToolIcon, { DARK_BLOOM } from '@/components/themes/shared/ToolIcon'
 import { externalUrl } from '@/lib/url'
 import { APP_NAME } from '@/lib/config'
 
@@ -413,9 +414,12 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                   <h3 className="text-lg font-bold text-white mb-5">{cat}</h3>
                   <div className="space-y-4">
                     {catSkills.map((s) => (
-                      <div key={s.id}>
+                      <div key={s.id} className="group">
                         <div className="flex justify-between text-sm mb-1.5">
-                          <span className="text-slate-300">{s.name}</span>
+                          <span className="flex items-center gap-2 text-slate-300">
+                            {profile.show_skill_logos !== false && <ToolIcon name={s.name} className="w-4 h-4" imgClassName={DARK_BLOOM} />}
+                            {s.name}
+                          </span>
                           {s.level && (
                             <span className="text-slate-500 capitalize text-xs">{s.level}</span>
                           )}

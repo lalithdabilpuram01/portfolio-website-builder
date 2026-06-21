@@ -23,6 +23,7 @@ export interface Profile {
   show_resume: boolean
   show_email: boolean
   show_location: boolean
+  show_skill_logos: boolean
   selected_theme: string
   status: UserStatus
   approved_at: string | null

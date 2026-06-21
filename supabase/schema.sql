@@ -55,6 +55,7 @@ create table profiles (
   show_resume      boolean default true,
   show_email       boolean default false,
   show_location    boolean default true,
+  show_skill_logos boolean default true,
   selected_theme   text references themes(slug) default 'classic',
   status           user_status default 'pending',
   approved_at      timestamp with time zone,
