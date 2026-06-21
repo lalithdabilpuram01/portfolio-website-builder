@@ -6,6 +6,7 @@ import { Github, Linkedin, Twitter } from '@/components/icons/Brand'
 import type { PortfolioData, Skill } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
+import ToolIcon from '@/components/themes/shared/ToolIcon'
 import { externalUrl } from '@/lib/url'
 
 function groupSkills(skills: Skill[]) {
@@ -243,7 +244,8 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                   <div className="text-sm text-slate-400 sm:w-40 shrink-0 mb-2 sm:mb-0">{cat}</div>
                   <div className="flex flex-wrap gap-x-4 gap-y-1">
                     {catSkills.map((s) => (
-                      <span key={s.id} className="text-slate-700 font-light">
+                      <span key={s.id} className="inline-flex items-center gap-1.5 text-slate-700 font-light">
+                        {profile.show_skill_logos !== false && <ToolIcon name={s.name} className="w-4 h-4" />}
                         {s.name}
                       </span>
                     ))}

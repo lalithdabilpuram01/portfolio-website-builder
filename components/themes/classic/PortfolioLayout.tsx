@@ -7,6 +7,7 @@ import { Github, Linkedin, Twitter } from '@/components/icons/Brand'
 import type { PortfolioData, Skill } from '@/types/portfolio'
 import ContactForm from '@/components/themes/shared/ContactForm'
 import ResumeButton from '@/components/themes/shared/ResumeButton'
+import ToolIcon, { DARK_BLOOM } from '@/components/themes/shared/ToolIcon'
 import { externalUrl } from '@/lib/url'
 import { APP_NAME } from '@/lib/config'
 
@@ -386,8 +387,9 @@ export default function PortfolioLayout({ profile, projects, skills, experience,
                       {catSkills.map((s) => (
                         <span
                           key={s.id}
-                          className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-slate-200 hover:border-indigo-500/40 hover:text-indigo-300 transition-colors"
+                          className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-slate-200 hover:border-indigo-500/40 hover:text-indigo-300 transition-colors"
                         >
+                          {profile.show_skill_logos !== false && <ToolIcon name={s.name} className="w-4 h-4" imgClassName={DARK_BLOOM} />}
                           {s.name}
                         </span>
                       ))}

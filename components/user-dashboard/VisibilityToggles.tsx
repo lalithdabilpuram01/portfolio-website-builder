@@ -14,6 +14,7 @@ type VisKey =
   | 'show_resume'
   | 'show_email'
   | 'show_location'
+  | 'show_skill_logos'
 
 const items: { key: VisKey; label: string; desc: string }[] = [
   { key: 'show_github', label: 'GitHub link', desc: 'Show your GitHub profile button' },
@@ -23,6 +24,7 @@ const items: { key: VisKey; label: string; desc: string }[] = [
   { key: 'show_resume', label: 'Resume download', desc: 'Allow visitors to download your resume' },
   { key: 'show_email', label: 'Email address', desc: 'Display your email on your portfolio' },
   { key: 'show_location', label: 'Location', desc: 'Show where you are based' },
+  { key: 'show_skill_logos', label: 'Skill logos', desc: 'Show brand logos next to your skills and tools' },
 ]
 
 export default function VisibilityToggles({ profile }: { profile: Profile }) {
@@ -35,6 +37,7 @@ export default function VisibilityToggles({ profile }: { profile: Profile }) {
     show_resume: profile.show_resume,
     show_email: profile.show_email,
     show_location: profile.show_location,
+    show_skill_logos: profile.show_skill_logos ?? true,
   })
   const [saving, setSaving] = useState(false)
 
